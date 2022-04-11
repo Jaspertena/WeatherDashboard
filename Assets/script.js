@@ -100,6 +100,18 @@ function displayForecastData(data) {
     currentHumidity.textContent="Humidity: "+data.daily[i].humidity+"%"
     weatherCard.appendChild(currentHumidity)
     forecastContainer.appendChild(weatherCard)
+    var currentWindSpeed = document.createElement("h4")
+    currentWindSpeed.textContent="Wind: "+data.daily[i].wind_speed+" km/h"
+    weatherCard.appendChild(currentWindSpeed)
+    var currentUVI = document.createElement("h4")
+    currentUVI.textContent="UVI: "+data.daily[i].uvi
+    if (currentUVI.textContent<1){
+        currentUVI.setAttribute("class", "bg-success")
+    }
+    else{
+        currentUVI.setAttribute("class", "bg-danger")
+    }
+    weatherCard.appendChild(currentUVI)
     }
 }
 
