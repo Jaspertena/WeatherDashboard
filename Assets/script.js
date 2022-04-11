@@ -19,7 +19,7 @@ const newName= document.getElementById("citySearch");
 const cityName= document.getElementById("cardTitle");
 
 function getCoordinate(city){   
-    var baseURL = "http://api.openweathermap.org/geo/1.0/direct?q="
+    var baseURL = "https://api.openweathermap.org/geo/1.0/direct?q="
     var rest = "&limit=1&appid="
     fetch (baseURL + city + rest + APIKey)
         .then(function(response){
