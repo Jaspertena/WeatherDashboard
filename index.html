@@ -17,64 +17,40 @@
     <h1 class="display-3">Weather Dashboard</h1>
     </header>
         <!-- City search area for weather-->
-    <h2 class="container" id="citySearch"> City Search</h2>
+        <div class="row">
+          <div class="searchField col-3">
+            <h2 class="container" id="citySearch"> City Search</h2>
         <form class="form-inline mb-3">
             <input id="inputSearch" type="text" class="form-control mr-2">
             <button id="search" type="submit" class="btn btn-dark" value="Search">Search</button>
         </form>
+          </div>
+          <div class="container col-5" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">CURRENT WEATHER</h5>
+              <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+              <div class="currentContainer">
     
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">CURRENT WEATHER</h5>
-          <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+              </div>
+            </div>
+          </div>
+    
         </div>
-      </div>
+    
 
 
-      <div class="card w-75" >
+      <div class="card w-75 m-5" >
         <div class="card-body" "mx-auto">
           <h3 class="card-title">CITY WEATHER - 5 day Forecast</h3>
         </div>
       </div>
 
       <!-- FORECAST CARDS -->
-    <div class="row">
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Day 1</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Day 2</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Day 3</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Day 4</h5>
-              </div>
-            </div>
-          </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Day 5</h5>
-            </div>
+    <div class="row forecastContainer m-5" >
+        
           </div>
 
 
-<script src="./script.js"</script></script>    
+<script src="./Assets/script.js"</script></script>    
 </body>
 </html>

@@ -39,7 +39,7 @@ function getCurrentWeather (lat, lon) {
     fetch (baseURL + lat + rest + lon + rest2 + APIKey)
         .then(function(response){
             response.json()
-            .then(function(data){console.log(data)})
+            .then(function(data){displayCurrentData(data)})
         })
 }
 
@@ -50,20 +50,57 @@ function getForecastWeather (lat, lon) {
     fetch (baseURL + lat + rest + lon + rest2 + APIKey)
         .then(function(response){
             response.json()
-            .then(function(data){console.log(data)})
+            .then(function(data){displayForecastData(data)
+            console.log(data)})
         })
 
     }
+var getCurrentWeatherContainer = document.querySelector(".currentContainer")
+
 
 function displayCurrentData(data) {
-    var weatherCard = document.getElementById("")
+    var weatherCard = document.createElement("div")
+    weatherCard.setAttribute("class", "card")
+    var cityName = document.createElement("h1")
+    cityName.textContent=inputSearch.value
+    cityName.setAttribute("class", "text-center")
+    weatherCard.appendChild(cityName)
+    var currentTemp = document.createElement("h4")
+    currentTemp.textContent="Temp: "+data.current.temp+"°"
+    weatherCard.appendChild(currentTemp)
+    var currentHumidity = document.createElement("h4")
+    currentHumidity.textContent="Humidity: "+data.current.humidity+"%"
+    weatherCard.appendChild(currentHumidity)
+    var currentWindSpeed = document.createElement("h4")
+    currentWindSpeed.textContent="Wind: "+data.current.wind_speed+" km/h"
+    weatherCard.appendChild(currentWindSpeed)
+    var currentUVI = document.createElement("h4")
+    currentUVI.textContent="UVI: "+data.current.uvi
+    if (currentUVI.textContent<1){
+        currentUVI.setAttribute("class", "bg-success")
+    }
+    else{
+        currentUVI.setAttribute("class", "bg-danger")
+    }
+    weatherCard.appendChild(currentUVI)
+    getCurrentWeatherContainer.appendChild(weatherCard)
+
 }
 
+var forecastContainer = document.querySelector(".forecastContainer")
+
 function displayForecastData(data) {
-    var weatherCard = document.getElementById("")
-    for(i=1; i<6; i++);
-        getForecastWeather(weatherCard);
-        // create a card 
-        document.appendChild("Card-Title")
+    for(i=1; i<6; i++){
+        var weatherCard = document.createElement("div")
+    weatherCard.setAttribute("class", "card")
+    var currentTemp = document.createElement("h4")
+    currentTemp.textContent="Temp: "+data.daily[i].temp.day+"°"
+    weatherCard.appendChild(currentTemp)
+    var currentHumidity = document.createElement("h4")
+    currentHumidity.textContent="Humidity: "+data.daily[i].humidity+"%"
+    weatherCard.appendChild(currentHumidity)
+    forecastContainer.appendChild(weatherCard)
+    }
 }
+
 
