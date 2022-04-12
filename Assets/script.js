@@ -41,19 +41,34 @@ searchButton.addEventListener("click", function(event){
         localStorage.setItem(i,cityList[i])
     }
 }
+
 function getCity (){
+    var city=[];
     for (var i = 0; i <localStorage.length; i++) {
         var keyValue=localStorage.key(i)
-        var city=localStorage.getItem(keyValue)
+        city=city.concat(localStorage.getItem(i))
+        // console.log(city)
+        // cityBtn.textContent = city;
+        // cityBtn.classList.add("btn","btn-primary","mb-2", "col-8");
+        // buttonContainer.appendChild(cityBtn);
+        // cityBtn.addEventListener("click", function(event){
+        //     event.preventDefault();
+        //     getCoordinate(city)
+        // })
+    }
+    console.log(city)
+    city.forEach(function(c){
+        console.log(c)
         var cityBtn = document.createElement("button");
-        cityBtn.textContent = city;
+        cityBtn.textContent = c;
         cityBtn.classList.add("btn","btn-primary","mb-2", "col-8");
         buttonContainer.appendChild(cityBtn);
         cityBtn.addEventListener("click", function(event){
             event.preventDefault();
-            getCoordinate(city)
+            getCoordinate(cityBtn.textContent)
         })
-    }
+    
+    })
 }
 getCity()
 const newName= document.getElementById("citySearch");
